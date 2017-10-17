@@ -1,0 +1,13 @@
+version: 0.1
+
+phases:
+  build:
+      commands:
+
+artifacts:
+  files:
+    -index.html
+    -favicon.ico
+    -VanessaHensonResume.pdf
+    -images/*
+    -styles/*
