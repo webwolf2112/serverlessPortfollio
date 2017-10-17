@@ -7,4 +7,4 @@ phases:
 
 
 artifacts:
-  files: -portfolliobuild.zip
+  files: - target/portfolliobuild.zip
