@@ -2,7 +2,8 @@ version: 0.2
 
 phases:
   build:
-      commands:
+    commands:
+      - echo Entered the build phase...
 
 
 artifacts:
@@ -12,4 +13,3 @@ artifacts:
     -VanessaHensonResume.pdf
     -images/*
     -styles/*
-  discard-paths: yes
