@@ -1,8 +1,12 @@
-version: 0.1
+version: 0.2
+
+env:
+  variables:
 
 phases:
   build:
       commands:
+
 
 artifacts:
   files:
@@ -11,3 +15,4 @@ artifacts:
     -VanessaHensonResume.pdf
     -images/*
     -styles/*
+  discard-paths: yes
