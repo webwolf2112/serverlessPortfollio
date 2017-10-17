@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Babel Demo</title>
+</head>
+<body>
+	<label>Name: <input id="name" type="text"></label>
+	<button id="submit_info">Submit</button>
+	<div id="content"></div>
+	<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+	<script type="text/babel" data-presets="latest">
+		const getMessage = (name) => `Welcome to Babel ${name}`;
+		const button = document.getElementById("submit_info");
+		
+		button.addEventListener("click", (evt) => {
+			let name = document.getElementById("name").value;
+
+			name = name.length > 1 ? name : "No Name";
+
+			document.getElementById("content").textContent = getMessage(name);
+		});
+	</script>
+</body>
+</html>
