@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Entered the build phase...
+
+
+artifacts:
+  type:
+    "s3"
+
+  files:
+    - index.html
+    - favicon.ico
+    - VanessaHensonResume.pdf
+    - images/*
+    - styles/*
