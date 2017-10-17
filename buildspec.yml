@@ -7,9 +7,7 @@ phases:
 
 
 artifacts:
-  files:
-    -index.html
-    -favicon.ico
-    -VanessaHensonResume.pdf
-    -images/*
-    -styles/*
+  type:
+    "s3"
+  packaging": "ZIP"
+  name": "portfolliobuild.zip"
