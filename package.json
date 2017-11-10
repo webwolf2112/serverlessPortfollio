@@ -1,0 +1,40 @@
+{
+  "name": "serverlessportfollio",
+  "version": "1.0.0",
+  "description": "My personal portfollio hosted with an s3 bucket and lambda functions\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit1",
+    "webpack": "webpack",
+    "webpack-watch": "webpack --watch",
+    "start" : "webpack-dev-server --hot --inline"
+  },
+  "dependencies": {
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.1.1",
+    "jest": "^21.2.1",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0",
+    "react-test-renderer": "^16.1.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webwolf2112/serverlessPortfollio.git"
+  },
+  "author": "Vanessa Henson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webwolf2112/serverlessPortfollio/issues"
+  },
+  "homepage": "https://github.com/webwolf2112/serverlessPortfollio#readme"
+}

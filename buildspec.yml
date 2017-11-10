@@ -3,7 +3,10 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo Entered the build phase...
+      - npm install
+      - npm run webpack
+
+
 
 
 artifacts:
@@ -16,3 +19,4 @@ artifacts:
     - VanessaHensonResume.pdf
     - images/*
     - styles/*
+    - dist/bundle.js
