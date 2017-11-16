@@ -1,14 +1,43 @@
 import React from 'react';
-
+import ExampleWorkModal from './example-work-modal.js';
 
 class ExampleWork extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.openModal = this.openModal.bind(this);
+		this.closeModal = this.closeModal.bind(this);
+
+		this.state = {
+			'modalOpen': false,
+			'selectedExample': this.props.work[0]
+		};
+	}
+
+	openModal(evt, example) {
+		this.setState({
+			'modalOpen': true,
+			'selectedExample': example
+		})
+	}
+
+	closeModal(evt, example) {
+		this.setState({
+			'modalOpen': false
+		});
+	}
+
 	render () {
 		return (
-			<section>
-				{this.props.work.map( (example, idx) => {
-					return <ExampleWorkBubble example={example} key={idx}/>
-				} )}
-			</section>
+			<span>
+				<section>
+					{this.props.work.map( (example, idx) => {
+						return <ExampleWorkBubble example={example} key={idx} openModal={this.openModal}/>
+					} )}
+				</section>
+
+				<ExampleWorkModal example={ this.state.selectedExample } open={ this.state.modalOpen } closeModal={ this.closeModal }/>
+			</span>
 			);
 		}
 	}
@@ -17,7 +46,8 @@ class ExampleWorkBubble extends React.Component {
 	render () {
 		let example = this.props.example;
 		return (
-			<div className="section__exampleWrapper">
+			<div className="section__exampleWrapper"
+				onClick={(e) => this.props.openModal(e, example)}>
 				<div className="section__example">
 					<img alt={ example.image.desc }
 							 className="section__exampleImage"
