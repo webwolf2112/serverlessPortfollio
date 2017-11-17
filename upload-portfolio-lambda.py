@@ -11,6 +11,16 @@ def lambda_handler(event, context):
         "objectKey": "portfolliobuild.zip"
     }
 
+ def getFileType(file):
+    if file.endswith(".css"):
+           return "text/css"
+    elif file.endswith(".html"):
+            return "text/html"
+    elif file.endswith(".js"):
+            return "application/javascript"
+    else:
+        return "basestring"
+
     try:
         job = event.get('CodePipeline.job')
 
@@ -30,7 +40,8 @@ def lambda_handler(event, context):
         with zipfile.ZipFile('/tmp/portfolio.zip') as myzip:
             for nm in myzip.namelist():
                 obj = myzip.open(nm)
-                portfolio_bucket.upload_fileobj(obj, nm, ExtraArgs={'ContentType':  'basestring'})
+                contentType = getFileType(nm);
+                portfolio_bucket.upload_fileobj(obj, nm, ExtraArgs={'ContentType':  contentType})
                 portfolio_bucket.Object(nm).Acl().put(ACL='public-read')
 
         print 'Job well done'
