@@ -11,15 +11,15 @@ def lambda_handler(event, context):
         "objectKey": "portfolliobuild.zip"
     }
 
- def getFileType(file):
-    if file.endswith(".css"):
-           return "text/css"
-    elif file.endswith(".html"):
+    def getFileType(file):
+        if file.endswith(".css"):
+            return "text/css"
+        elif file.endswith(".html"):
             return "text/html"
-    elif file.endswith(".js"):
+        elif file.endswith(".js"):
             return "application/javascript"
-    else:
-        return "basestring"
+        else:
+    return "basestring"
 
     try:
         job = event.get('CodePipeline.job')
