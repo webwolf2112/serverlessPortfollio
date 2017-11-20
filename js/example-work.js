@@ -46,9 +46,9 @@ class ExampleWorkBubble extends React.Component {
 	render () {
 		let example = this.props.example;
 		return (
-			<div className="section__exampleWrapper"
+			<div className="section__exampleWrapper {styles.css}"
 				onClick={(e) => this.props.openModal(e, example)}>
-				<div className="section__example">
+				<div className="section__example { styles.app }">
 					<img alt={ example.image.desc }
 							 className="section__exampleImage"
 							 src={ example.image.src }/>

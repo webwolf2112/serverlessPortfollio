@@ -1,11 +1,13 @@
 const path = require("path");
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+//const styleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
-	entry: './js/main.js',
-	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js'
+		entry: './js/main.js',
+		output: {
+		path: __dirname,
+		filename: 'dist/bundle.js'
 	},
 	module: {
 		rules: [{
@@ -18,13 +20,22 @@ module.exports = {
 				}
 			}
 		},{
+        test:/\.css$/,
+				loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+
+    },  {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
-    }]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            'postcss-loader',
+            'sass-loader'
+          ]
+        })
+      }]
 	},
 	plugins: [
-        new ExtractTextPlugin('dist/style.css', {
-            allChunks: true
-        })
+			new ExtractTextPlugin('dist/app.css')
     ]
 }
