@@ -5,29 +5,28 @@ class ExampleWork extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.openModal = this.openModal.bind(this);
-		this.closeModal = this.closeModal.bind(this);
-
 		this.state = {
 			'modalOpen': false,
 			'selectedExample': this.props.work[0]
 		};
 	}
 
-	openModal(evt, example) {
-		this.setState({
-			'modalOpen': true,
-			'selectedExample': example
-		})
-	}
-
-	closeModal(evt, example) {
-		this.setState({
-			'modalOpen': false
-		});
-	}
-
 	render () {
+
+		const openModal = (evt, example) => {
+			this.setState({
+				'modalOpen': true,
+				'selectedExample': example
+			})
+		};
+	 
+		const closeModal = (evt, example) => {
+			this.setState({
+				'modalOpen': false
+			});
+		};
+
+
 		return (
 			<span>
 				<section>

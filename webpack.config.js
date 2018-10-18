@@ -4,11 +4,17 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 //const styleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
-		entry: './js/main.js',
+		entry: './app.js',
 		output: {
 		path: __dirname,
 		filename: 'dist/bundle.js'
 	},
+	devtool: 'inline-source-map',
+	devServer: {
+    	contentBase: "./",
+    	watchContentBase: true,
+    	hot: true,
+   	},
 	module: {
 		rules: [{
 			test: /\.js$/,
@@ -19,23 +25,21 @@ module.exports = {
 					presets: ['react']
 				}
 			}
-		},{
-        test:/\.css$/,
-				loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-
-    },  {
+		},
+       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            'postcss-loader',
-            'sass-loader'
-          ]
-        })
+    	use: [
+    		"style-loader",
+    		"css-loader",
+    		"postcss-loader",
+    		"sass-loader",
+    
+    	]
       }]
 	},
 	plugins: [
-			new ExtractTextPlugin('dist/app.css')
+		// new ExtractTextPlugin('dist/app.css'),
+
+		new webpack.HotModuleReplacementPlugin()
     ]
 }
